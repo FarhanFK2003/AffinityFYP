@@ -1,0 +1,6 @@
+@FYPBackend_HostAddress = http://localhost:5056
+
+GET {{FYPBackend_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
