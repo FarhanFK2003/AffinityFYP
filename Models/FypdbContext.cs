@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace FYPBackend.Models;
 
@@ -22,8 +23,17 @@ public partial class FypdbContext : DbContext
     public virtual DbSet<User> Users { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=FYPDB;Integrated Security=True;");
+    {
+        if (!optionsBuilder.IsConfigured)
+        {
+            var config = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json")
+                .Build();
 
+            optionsBuilder.UseSqlServer(config.GetConnectionString("DefaultConnection"));
+        }
+    }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Game>(entity =>
@@ -38,7 +48,7 @@ public partial class FypdbContext : DbContext
 
         modelBuilder.Entity<GamePlay>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__GamePlay__3214EC070505396A");
+            entity.HasKey(e => e.Id).HasName("PK__tmp_ms_x__3214EC07DBA97D69");
 
             entity.ToTable("GamePlay");
 

@@ -13,5 +13,7 @@ public partial class GamePlay
 
     public int Score { get; set; }
 
-    public decimal PlayingHours { get; set; }
+    public int? Level { get; set; }
+
+    public decimal? PlayingHours { get; set; }
 }

@@ -340,3 +340,4 @@ C:\FYP\FYPBackend\FYPBackend\obj\Debug\net8.0\refint\FYPBackend.dll
 C:\FYP\FYPBackend\FYPBackend\obj\Debug\net8.0\FYPBackend.pdb
 C:\FYP\FYPBackend\FYPBackend\obj\Debug\net8.0\FYPBackend.genruntimeconfig.cache
 C:\FYP\FYPBackend\FYPBackend\obj\Debug\net8.0\ref\FYPBackend.dll
+C:\FYP\FYPBackend\FYPBackend\obj\Debug\net8.0\FYPBackend.sourcelink.json
