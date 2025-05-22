@@ -70,7 +70,7 @@ export default function Page() {
           <Image src="/board.svg" width={24} height={24} alt='board' />
           </div>
         </div>
-        <Image src="/logout.svg" alt="logout" width={24} height={24} />
+        <Image onClick={handleLogout} src="/logout.svg" alt="logout" width={24} height={24} />
       </aside>
 
       {/* Main Content */}
@@ -92,14 +92,7 @@ export default function Page() {
             </div>
           </div>
           {/* Logout Button */}
-          {userName && (
-            <button
-              onClick={handleLogout}
-              className="bg-yellow-500 text-black px-6 py-2 text-lg font-bold rounded-lg hover:bg-yellow-400 transition"
-            >
-              Logout
-            </button>
-          )}
+        
         </header>
 
         {/* Recently Launched */}

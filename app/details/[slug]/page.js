@@ -71,7 +71,7 @@ export default function GameDetails() {
           <Image src="/board.svg" width={24} height={24} alt='board' />
           </div>
         </div>
-        <Image src="/logout.svg" alt="logout" width={24} height={24} />
+        <Image onClick={handleLogout} src="/logout.svg" alt="logout" width={24} height={24} />
       </aside>
       {/* Main Content */}
       <main className="flex-1 bg-[#171717] max-h-screen overflow-y-auto text-white p-8">
@@ -92,14 +92,7 @@ export default function GameDetails() {
             </div>
           </div>
           {/* Logout Button */}
-          {userName && (
-            <button
-              onClick={handleLogout}
-              className="bg-[#FFBB00] text-black px-6 py-2 text-lg font-bold rounded-lg hover:bg-[#FFBB00] transition"
-            >
-              Logout
-            </button>
-          )}
+         
         </header>
 
         {/* Game Details */}
