@@ -1,18 +1,12 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
-using System;
+﻿using Microsoft.AspNetCore.Mvc;
 using FYPBackend.Models;
-using BCrypt;
-using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FYPBackend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class GameController : ControllerBase
     {
         private readonly FypdbContext _context;
@@ -22,8 +16,16 @@ namespace FYPBackend.Controllers
             _context = context;
         }
 
+        [HttpGet("getUser")]
+        public IActionResult GetUser()
+        {
+            var userId = int.Parse(User.FindFirst("UserId").Value);
+
+            return Ok(new { id = userId });
+        }
+
         [HttpGet("getLeaderboard")]
-        public List<dynamic> getLeaderBoard(int gameId,int userId)
+        public IActionResult getLeaderBoard(int gameId,int userId)
         {
             var allEntries = _context.GamePlays
     .Where(gp => gp.GameId == gameId)
@@ -60,7 +62,27 @@ namespace FYPBackend.Controllers
                 topEntries.Add(userEntry);
             }
 
-            return topEntries;
+            return Ok(topEntries);
+        }
+
+        [HttpPut("updateGameplay")]
+        public IActionResult Update([FromBody]GamePlay gamePlay)
+        {
+            var gameP=_context.GamePlays.Where(g=> g.UserId==gamePlay.UserId && g.GameId==gamePlay.GameId).FirstOrDefault();
+            if (gameP != null)
+            {
+                gameP.Score = gamePlay.Score;
+                gameP.Level = gamePlay.Level;
+                _context.SaveChanges();
+
+            }
+            else
+            {
+                _context.GamePlays.Add(gamePlay);
+                _context.SaveChanges();
+            }
+
+            return NoContent();
         }
 
 

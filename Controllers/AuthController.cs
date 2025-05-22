@@ -50,7 +50,7 @@ namespace FYPBackend.Controllers
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("this -is -my - secret - key - that -is -too - long - key - it -is -needed"));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-            var token = new JwtSecurityToken("EAD_Assignment3_App", "EAD_Assignment3_App", claims, expires: DateTime.UtcNow.AddHours(1), signingCredentials: creds);
+            var token = new JwtSecurityToken("FYP_App", "FYP_App", claims, expires: DateTime.UtcNow.AddHours(1), signingCredentials: creds);
 
             return Ok(new { Token = new JwtSecurityTokenHandler().WriteToken(token), user });
         }

@@ -59,8 +59,8 @@ namespace FYPBackend
                         ValidateAudience = true,
                         ValidateLifetime = true,
                         ValidateIssuerSigningKey = true,
-                        ValidIssuer = "EAD_Assignment3_App",
-                        ValidAudience = "EAD_Assignment3_App",
+                        ValidIssuer = "FYP_App",
+                        ValidAudience = "FYP_App",
                         IssuerSigningKey = new SymmetricSecurityKey(key)
                     };
                 });
