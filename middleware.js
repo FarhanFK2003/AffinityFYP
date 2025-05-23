@@ -5,15 +5,15 @@ export function middleware(request) {
   const token = request.cookies.get('token') || null;
 
   // Define protected routes
-  const protectedRoutes = ['/home', '/profile', '/settings']; // Add as needed
+  // const protectedRoutes = ['/home', '/profile', '/settings']; // Add as needed
 
-  // Avoid redirect loop if user is already on login page
-  if (protectedRoutes.some((route) => request.nextUrl.pathname.startsWith(route))) {
-    if (!token) {
-      // Redirect to login if no token
-      return NextResponse.redirect(new URL('/login', request.url));
-    }
-  }
+  // // Avoid redirect loop if user is already on login page
+  // if (protectedRoutes.some((route) => request.nextUrl.pathname.startsWith(route))) {
+  //   if (!token) {
+  //     // Redirect to login if no token
+  //     return NextResponse.redirect(new URL('/login', request.url));
+  //   }
+  // }
 
   // Prevent redirects on login page to avoid loop
   if (request.nextUrl.pathname === '/login' && token) {

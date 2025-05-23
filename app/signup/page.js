@@ -46,10 +46,10 @@ export default function SignUp() {
 
   return (
     <div className="min-h-screen flex flex-col py-6 items-center justify-center bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(/bg.svg)' }}>
-      <Image src="/logo.svg" alt="bg" width={422} height={77} className='mb-[95px]' />
-      <div className="py-[47px] rounded-xl w-[723px] backdrop-blur-[58px] bg-[#EAF6F117] border-[#FFBB00] border">
+      <Image src="/logo.svg" alt="bg" width={422} height={77}className='mb-[95px] sm:w-auto w-[200px]' />
+      <div className="py-[47px] rounded-xl w-[90%] px-3 md:w-[723px] backdrop-blur-[58px] bg-[#EAF6F117] border-[#FFBB00] border">
         <div className='max-w-[369px] mx-auto'>
-          <h1 className="text-5xl font-medium text-[#FFFFFF] mb-6 text-center">Sign Up</h1>
+        <h1 className=" text-3xl sm:text-5xl font-medium  text-[#FFFFFF] mb-6 text-center">Sign Up</h1>
           <p className='text-[#FFFFFF] text-center text-[18px] leading-[100%]'>Create account to kickstart your learning</p>
 
           <form className="py-[44px]" onSubmit={handleSubmit}>
