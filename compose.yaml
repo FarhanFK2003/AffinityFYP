@@ -1,37 +1,16 @@
-﻿version: '3.8'
-
-services:
+﻿services:
   backend:
     container_name: fyp-backend
     build:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "8080:8080"
+      - "7146:7146"
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ConnectionStrings__DefaultConnection=Server=sql;Database=FYPDatabase;User Id=sa;Password=myStrong(!)Password;TrustServerCertificate=True;
-    depends_on:
-      - sql
+      - ConnectionStrings__DefaultConnection=Data Source=... ;Password=... ;etc.
     networks:
       - fyp-network
-
-  sql:
-    image: mcr.microsoft.com/mssql/server:2022-latest
-    container_name: sql_server
-    ports:
-      - "1433:1433"
-    environment:
-      - ACCEPT_EULA=Y
-      - MSSQL_SA_PASSWORD=myStrong(!)Password
-    volumes:
-      - sql-server-data:/var/opt/mssql
-    networks:
-      - fyp-network
-
-volumes:
-  sql-server-data:
 
 networks:
   fyp-network:
-    driver: bridge

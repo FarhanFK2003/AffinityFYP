@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FYPBackend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+52ad84983bc5b8c5f2494e6aa9ce9a7cb260e018")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bc1116383b18819169e1263f05604abbef439d8c")]
 [assembly: System.Reflection.AssemblyProductAttribute("FYPBackend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FYPBackend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

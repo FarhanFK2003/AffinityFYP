@@ -68,9 +68,9 @@ namespace FYPBackend
             // ✅ CORS: Allow http://localhost:3000 (React, Next.js, etc.)
             builder.Services.AddCors(options =>
             {
-                options.AddPolicy("AllowFrontendApp", policy =>
+                options.AddPolicy("AllowAll", policy =>
                 {
-                    policy.WithOrigins("http://localhost:3000") // Add frontend port
+                    policy.AllowAnyOrigin() // Add frontend port
                           .AllowAnyHeader()
                           .AllowAnyMethod();
                 });
@@ -79,7 +79,7 @@ namespace FYPBackend
             var app = builder.Build();
 
             // Use the updated CORS policy
-            app.UseCors("AllowFrontendApp");
+            app.UseCors("AllowAll");
 
             app.UseSwagger();
             app.UseSwaggerUI();
